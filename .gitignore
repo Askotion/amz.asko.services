@@ -1,0 +1,7 @@
+node_modules
+.cursorrules
+Lessons.md
+Scratchpad.md
+
+.DS_Store
+.env
