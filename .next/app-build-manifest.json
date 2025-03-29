@@ -1,10 +1,5 @@
 {
   "pages": {
-    "/api/sas/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/sas/route.js"
-    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -21,15 +16,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/quotes/overview/page.js"
     ],
-    "/quotes/monitoring/page": [
+    "/sourcing/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/quotes/monitoring/page.js"
+      "static/chunks/app/sourcing/layout.js"
     ],
-    "/quotes/audits/page": [
+    "/sourcing/purchases/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/quotes/audits/page.js"
+      "static/chunks/app/sourcing/purchases/page.js"
     ]
   }
 }

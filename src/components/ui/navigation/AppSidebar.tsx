@@ -83,6 +83,18 @@ const navigation2 = [
       },
     ],
   },
+  {
+    name: "Sourcing",
+    href: "#",
+    icon: PackageSearch,
+    children: [
+      {
+        name: "Purchases",
+        href: "/sourcing/purchases",
+        active: false,
+      },
+    ],
+  },
 ] as const
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {

@@ -11,3 +11,4 @@ END $$;
 -- Add the new status column to the table
 ALTER TABLE public.amz_sas_purchase
 ADD COLUMN status purchase_status NOT NULL DEFAULT 'draft';
+

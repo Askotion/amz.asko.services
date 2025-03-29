@@ -8,6 +8,9 @@ export const siteConfig = {
       monitoring: "/quotes/monitoring",
       audits: "/quotes/audits",
     },
+    sourcing: {
+      purchases: "/sourcing/purchases",
+    },
   },
 }
 
