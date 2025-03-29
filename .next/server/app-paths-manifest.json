@@ -1,3 +1,5 @@
 {
-  "/quotes/overview/page": "app/quotes/overview/page.js"
+  "/quotes/overview/page": "app/quotes/overview/page.js",
+  "/quotes/monitoring/page": "app/quotes/monitoring/page.js",
+  "/quotes/audits/page": "app/quotes/audits/page.js"
 }
