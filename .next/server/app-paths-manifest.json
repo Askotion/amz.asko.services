@@ -1,4 +1,7 @@
 {
-  "/quotes/overview/page": "app/quotes/overview/page.js",
-  "/sourcing/purchases/page": "app/sourcing/purchases/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/inventory/fba/page": "app/inventory/fba/page.js",
+  "/inventory/fbm/page": "app/inventory/fbm/page.js",
+  "/sourcing/overview/page": "app/sourcing/overview/page.js"
 }

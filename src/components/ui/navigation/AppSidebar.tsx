@@ -16,88 +16,14 @@ import {
 } from "@/components/Sidebar"
 import { cx, focusRing } from "@/lib/utils"
 import { RiArrowDownSFill } from "@remixicon/react"
-import { BookText, House, PackageSearch } from "lucide-react"
+import { usePathname } from "next/navigation"
 import * as React from "react"
 import { Logo } from "../../../../public/Logo"
 import { UserProfile } from "./UserProfile"
-
-const navigation = [
-  {
-    name: "Home",
-    href: "#",
-    icon: House,
-    notifications: false,
-    active: false,
-  },
-  {
-    name: "Inbox",
-    href: "#",
-    icon: PackageSearch,
-    notifications: 2,
-    active: false,
-  },
-] as const
-
-const navigation2 = [
-  {
-    name: "Sales",
-    href: "#",
-    icon: BookText,
-    children: [
-      {
-        name: "Quotes",
-        href: "#",
-        active: true,
-      },
-      {
-        name: "Orders",
-        href: "#",
-        active: false,
-      },
-      {
-        name: "Insights & Reports",
-        href: "#",
-        active: false,
-      },
-    ],
-  },
-  {
-    name: "Products",
-    href: "#",
-    icon: PackageSearch,
-    children: [
-      {
-        name: "Items",
-        href: "#",
-        active: false,
-      },
-      {
-        name: "Variants",
-        href: "#",
-        active: false,
-      },
-      {
-        name: "Suppliers",
-        href: "#",
-        active: false,
-      },
-    ],
-  },
-  {
-    name: "Sourcing",
-    href: "#",
-    icon: PackageSearch,
-    children: [
-      {
-        name: "Purchases",
-        href: "/sourcing/purchases",
-        active: false,
-      },
-    ],
-  },
-] as const
+import { navigation, navigation2 } from "./navigation-data"
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const pathname = usePathname()
   const [openMenus, setOpenMenus] = React.useState<string[]>([
     navigation2[0].name,
     navigation2[1].name,
@@ -109,6 +35,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         : [...prev, name],
     )
   }
+  
+  // Automatically open menu for the section the user is currently in
+  React.useEffect(() => {
+    const currentSection = navigation2.find(section => 
+      section.children?.some(child => pathname === child.href)
+    )
+    
+    if (currentSection && !openMenus.includes(currentSection.name)) {
+      setOpenMenus(prev => [...prev, currentSection.name])
+    }
+  }, [pathname, openMenus])
+  
   return (
     <Sidebar {...props} className="bg-gray-50 dark:bg-gray-925">
       <SidebarHeader className="px-3 py-4">
@@ -142,8 +80,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               {navigation.map((item) => (
                 <SidebarMenuItem key={item.name}>
                   <SidebarLink
-                    href="#"
-                    isActive={item.active}
+                    href={item.href}
+                    isActive={pathname === item.href}
                     icon={item.icon}
                     notifications={item.notifications}
                   >
@@ -194,7 +132,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                         <SidebarMenuItem key={child.name}>
                           <SidebarSubLink
                             href={child.href}
-                            isActive={child.active}
+                            isActive={pathname === child.href}
                           >
                             {child.name}
                           </SidebarSubLink>

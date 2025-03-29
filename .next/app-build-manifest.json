@@ -6,25 +6,30 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/quotes/layout": [
+    "/inventory/fba/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/quotes/layout.js"
-    ],
-    "/quotes/overview/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/quotes/overview/page.js"
+      "static/chunks/app/inventory/fba/page.js"
     ],
     "/sourcing/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/sourcing/layout.js"
     ],
-    "/sourcing/purchases/page": [
+    "/sourcing/overview/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/sourcing/purchases/page.js"
+      "static/chunks/app/sourcing/overview/page.js"
+    ],
+    "/inventory/fbm/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/inventory/fbm/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }
