@@ -21,6 +21,11 @@
       "static/chunks/main-app.js",
       "static/chunks/app/sourcing/overview/page.js"
     ],
+    "/api/sas/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/sas/route.js"
+    ],
     "/inventory/fbm/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
