@@ -4,14 +4,14 @@ import * as React from "react"
 export const navigation = [
   {
     name: "Home",
-    href: "/",
+    href: "/home",
     icon: House,
     notifications: false,
     active: false,
   },
   {
     name: "Inbox",
-    href: "#",
+    href: "/inbox",
     icon: PackageSearch,
     notifications: 2,
     active: false,
@@ -21,7 +21,7 @@ export const navigation = [
 export const navigation2 = [
   {
     name: "Inventory",
-    href: "#",
+    href: "/inventory",
     icon: PackageSearch,
     children: [
       {
@@ -38,7 +38,7 @@ export const navigation2 = [
   },
   {
     name: "Sourcing",
-    href: "#",
+    href: "/sourcing",
     icon: BookText,
     children: [
       {
@@ -55,7 +55,7 @@ export const navigation2 = [
   },
   {
     name: "Offers",
-    href: "#",
+    href: "/offers",
     icon: PackageSearch,
     children: [
       {
@@ -72,7 +72,7 @@ export const navigation2 = [
   },
   {
     name: "Remission",
-    href: "#",
+    href: "/remission",
     icon: PackageSearch,
     children: [
       {
@@ -89,7 +89,7 @@ export const navigation2 = [
   },
   {
     name: "Addons",
-    href: "#",
+    href: "/addons",
     icon: PackageSearch,
     children: [
       {

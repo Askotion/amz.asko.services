@@ -24,28 +24,20 @@ import { navigation, navigation2 } from "./navigation-data"
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname()
-  const [openMenus, setOpenMenus] = React.useState<string[]>([
-    navigation2[0].name,
-    navigation2[1].name,
-  ])
-  const toggleMenu = (name: string) => {
-    setOpenMenus((prev: string[]) =>
-      prev.includes(name)
-        ? prev.filter((item: string) => item !== name)
-        : [...prev, name],
-    )
-  }
-  
+  const [openMenus, setOpenMenus] = React.useState<string[]>([])
+
   // Automatically open menu for the section the user is currently in
   React.useEffect(() => {
     const currentSection = navigation2.find(section => 
       section.children?.some(child => pathname === child.href)
     )
     
-    if (currentSection && !openMenus.includes(currentSection.name)) {
-      setOpenMenus(prev => [...prev, currentSection.name])
+    if (currentSection) {
+      setOpenMenus([currentSection.name])
+    } else {
+      setOpenMenus([])
     }
-  }, [pathname, openMenus])
+  }, [pathname])
   
   return (
     <Sidebar {...props} className="bg-gray-50 dark:bg-gray-925">
@@ -100,9 +92,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenu className="space-y-4">
               {navigation2.map((item) => (
                 <SidebarMenuItem key={item.name}>
-                  {/* @CHRIS/SEV: discussion whether to componentize (-> state mgmt) */}
                   <button
-                    onClick={() => toggleMenu(item.name)}
+                    onClick={() => {
+                      if (openMenus.includes(item.name)) {
+                        setOpenMenus([])
+                      } else {
+                        setOpenMenus([item.name])
+                      }
+                    }}
                     className={cx(
                       "flex w-full items-center justify-between gap-x-2.5 rounded-md p-2 text-base text-gray-900 transition hover:bg-gray-200/50 sm:text-sm dark:text-gray-400 hover:dark:bg-gray-900 hover:dark:text-gray-50",
                       focusRing,
